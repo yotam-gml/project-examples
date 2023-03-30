@@ -4,7 +4,7 @@ WORKDIR /go/src/app
 COPY . .
 RUN go install -v ./...
 
-FROM alpine:latest
+FROM alpine:3.17.3
 RUN apk --no-cache add ca-certificates
 COPY --from=builder /go/bin/app /app
 ENTRYPOINT ./app
